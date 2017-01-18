@@ -5,6 +5,10 @@
 <%= @game.players[1].name %> has <%= @game.players[1].hit_points %> hit points.
 </div>
 
+<div>
+  It's <%= @game.players[1].name %>'s turn!
+</div>
+
 <form action="/attack" method="post">
   <input type="submit" value="attack">
 </form>
