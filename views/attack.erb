@@ -1,6 +1,4 @@
-<%= @player_1.name %> is attacking <%= @player_2.name %>.
-
-<!-- <%= @player_2.name %> has <%= @player_2.hit_points %> hit points. -->
+<%= @game.players[0].name %> is attacking <%= @game.players[1].name %>.
 
 <form action="/play" method="get">
   <input type="submit" value="ok">
