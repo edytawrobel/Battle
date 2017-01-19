@@ -11,7 +11,7 @@ describe Game do
     end
 
     it 'the turn belongs to the first player' do
-      expect(game.turn).to eq(0)
+      expect(game.turn).to eq player_1
     end
   end
 
@@ -25,7 +25,7 @@ describe Game do
   describe '#switch_turn' do
     it "switches the player's turn" do
       game.switch_turn
-      expect(game.turn).to eq(1)
+      expect(game.turn).to eq player_2
     end
   end
 end

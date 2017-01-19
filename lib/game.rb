@@ -4,8 +4,7 @@ class Game
 
   def initialize(*players)
     @players = players
-    @k = 0
-    @turn = @k % 2
+    @turn = players[0]
   end
 
   def attack(player)
@@ -13,8 +12,12 @@ class Game
   end
 
   def switch_turn
-    @k += 1
-    @turn = @k % 2
+    @turn = opponent_of(turn)
   end
 
+  private
+
+  def opponent_of(the_player)
+    @players.find { |player| player != the_player}
+  end
 end

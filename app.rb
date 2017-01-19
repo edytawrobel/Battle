@@ -26,6 +26,7 @@ class Battle < Sinatra::Base
   post '/attack' do
     @game = $game
     @game.attack(@game.players[1])
+    @game.switch_turn
     erb :attack
   end
 
