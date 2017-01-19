@@ -1,14 +1,33 @@
-<div>
-  <%= @game.players[0].name %> vs. <%= @game.players[1].name %>
-</div>
-<div>
-<%= @game.players[1].name %> has <%= @game.players[1].hit_points %> hit points.
-</div>
+<html>
 
-<div>
-  It's <%= @game.turn.name %>'s turn!
-</div>
+<head>
+  <title> Battle </title>
+</head>
 
-<form action="/attack" method="post">
-  <input type="submit" value="attack">
-</form>
+<body>
+  <h1>Battle</h1>
+
+
+  <div>
+    <%= @game.players[0].name %> vs. <%= @game.players[1].name %>
+  </div>
+  <div>
+  <%= @game.players[1].name %> has <%= @game.players[1].hit_points %> hit points.
+  </div>
+
+  <div>
+  <%= @game.players[0].name %> has <%= @game.players[0].hit_points %> hit points.
+  </div>
+
+  <div>
+    It's <%= @game.turn.name %>'s turn!
+  </div>
+
+  <form action="/attack" method="post">
+    <input type="submit" value="attack">
+  </form>
+
+
+
+</body>
+</html>

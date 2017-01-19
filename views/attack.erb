@@ -1,5 +1,18 @@
-<%= @game.players[0].name %> is attacking <%= @game.players[1].name %>.
+<html>
+<head>
+  <title> Battle </title>
+</head>
+<body>
+  <h1>Battle</h1>
 
-<form action="/play" method="get">
-  <input type="submit" value="ok">
-</form>
+  <%= @game.players[0].name %> is attacking <%= @game.players[1].name %>.
+
+  <form action="/play" method="get">
+    <input type="submit" value="ok">
+  </form>
+
+
+
+
+</body>
+</html>
