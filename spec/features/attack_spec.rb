@@ -43,8 +43,10 @@ feature "Player 1 wins a game of Battle" do
   end
 end
 
-# feature "Player 1 loses a game of Battle" do
-#   scenario "see a 'Lose' message if I reach 0HP first" do
-#
-#   end
-# end
+feature "Player 1 loses a game of Battle" do
+  scenario "see a 'Lose' message if I reach 0HP first" do
+    player_one_10_HP
+    2.times { click_button 'attack'; click_button 'ok' }
+    expect(page).to have_content("Game over: Anna wins! Obama loses!")
+  end
+end
