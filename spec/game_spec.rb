@@ -17,7 +17,8 @@ describe Game do
 
   describe '#attack' do
     it "hits opponent" do
-      expect(player_2).to receive(:receive_damage)
+      allow(game).to receive(:random_damage).and_return(30)
+      expect(player_2).to receive(:receive_damage).with(30)
       game.attack(player_2)
     end
   end

@@ -24,15 +24,16 @@ describe Player do
   end
 
   describe '#receive_damage' do
+    it {is_expected.to respond_to(:receive_damage).with(1).argument}
     it "reduces score when attacked by opponent" do
-      expect { player_2.receive_damage }.to change { player_2.hit_points }.by(-10)
+      expect { player_2.receive_damage(10) }.to change { player_2.hit_points }.by(-10)
     end
   end
 
   describe '#knocked_out?' do
     context 'when HIT POINTS equals 0' do
       it "player's knocked out" do
-        10.times { player_2.receive_damage }
+        player_2.receive_damage(100)
         expect(player_2).to be_knocked_out
       end
     end

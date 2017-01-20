@@ -45,8 +45,10 @@ end
 
 feature "Player 1 loses a game of Battle" do
   scenario "see a 'Lose' message if I reach 0HP first" do
-    player_one_10_HP
-    2.times { click_button 'attack'; click_button 'ok' }
+    players_two_turn
+    allow(Kernel).to receive(:rand).and_return(100)
+    click_button 'attack'
+    click_button 'ok'
     expect(page).to have_content("Game over: Anna wins! Obama loses!")
   end
 end

@@ -8,7 +8,7 @@ class Game
   end
 
   def attack(player)
-    player.receive_damage
+    player.receive_damage(random_damage)
   end
 
   def switch_turn
@@ -21,6 +21,12 @@ class Game
 
   def opponent_of(the_player)
     @players.find { |player| player != the_player}
+  end
+
+  private
+
+  def random_damage
+    Kernel.rand(1..40)
   end
 
 

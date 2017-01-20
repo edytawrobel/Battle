@@ -9,12 +9,12 @@ class Player
     @hit_points = hit_points
   end
 
-  def receive_damage
-    @hit_points -= 10
+  def receive_damage(points)
+    @hit_points -= points
   end
 
   def knocked_out?
-    hit_points == MIN_POINTS
+    hit_points <= MIN_POINTS
   end
 
 end
