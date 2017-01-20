@@ -10,3 +10,8 @@ def players_two_turn
   click_button 'attack'
   click_button 'ok'
 end
+
+def player_two_loses
+  sign_in_and_play
+  19.times { click_button 'attack' ; click_button 'ok' }
+end

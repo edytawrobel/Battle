@@ -1,8 +1,8 @@
 require 'game'
 
 describe Game do
-  let(:player_1) { double :player }
-  let(:player_2) { double :player }
+  let(:player_1) { double :player1 }
+  let(:player_2) { double :player2 }
   subject(:game) { described_class.new(player_1, player_2) }
 
   describe "upon initialization" do
@@ -28,4 +28,15 @@ describe Game do
       expect(game.turn).to eq player_2
     end
   end
+
+  describe '#game_over' do
+    context 'when the Player2 hit points equals 0' do
+      it "should end the game" do
+        allow(player_2).to receive(:knocked_out?).and_return(true)
+        allow(player_1).to receive(:knocked_out?).and_return(false)
+        game.game_over?
+      end
+    end
+  end
+
 end

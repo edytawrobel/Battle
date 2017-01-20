@@ -34,3 +34,17 @@ feature "switch turns" do
     expect(page).to have_content("It's Anna's turn!")
   end
 end
+
+
+feature "Player 1 wins a game of Battle" do
+  scenario "see a 'Win' message if Player2 reaches 0HP first" do
+    player_two_loses
+    expect(page).to have_content("Game over: Obama wins! Anna loses!")
+  end
+end
+
+# feature "Player 1 loses a game of Battle" do
+#   scenario "see a 'Lose' message if I reach 0HP first" do
+#
+#   end
+# end

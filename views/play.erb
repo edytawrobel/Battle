@@ -19,13 +19,18 @@
   <%= @game.players[0].name %> has <%= @game.players[0].hit_points %> hit points.
   </div>
 
-  <div>
-    It's <%= @game.turn.name %>'s turn!
-  </div>
 
-  <form action="/attack" method="post">
-    <input type="submit" value="attack">
-  </form>
+  <% if !@game.game_over? %>
+    <div>
+      It's <%= @game.turn.name %>'s turn!
+    </div>
+
+    <form action="/attack" method="post">
+      <input type="submit" value="attack">
+    </form>
+  <% else  %>
+    <h2> Game over: <%= @game.opponent_of(@game.turn).name %> wins!  <%= @game.turn.name %> loses! </h2>
+  <% end  %>
 
 
 

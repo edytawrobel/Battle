@@ -15,7 +15,13 @@ class Game
     @turn = opponent_of(turn)
   end
 
+  def game_over?
+    players[0].knocked_out? || players[1].knocked_out?
+  end
+
   def opponent_of(the_player)
     @players.find { |player| player != the_player}
   end
+
+
 end
