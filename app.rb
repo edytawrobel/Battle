@@ -25,8 +25,9 @@ class Battle < Sinatra::Base
 
   post '/attack' do
     @game = $game
-    @game.attack(@game.players[1])
+    @game.attack(@game.opponent_of(@game.turn))
     @game.switch_turn
+
     erb :attack
   end
 

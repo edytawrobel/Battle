@@ -4,8 +4,11 @@
 </head>
 <body>
   <h1>Battle</h1>
-
-  <%= @game.players[0].name %> is attacking <%= @game.players[1].name %>.
+  <% if @game.turn == @game.players[1] %>
+    <%= @game.players[0].name %> is attacking <%= @game.players[1].name %>.
+  <% else  %>
+    <%= @game.players[1].name %> is attacking <%= @game.players[0].name %>.
+  <% end  %>
 
   <form action="/play" method="get">
     <input type="submit" value="ok">
