@@ -2,9 +2,18 @@ class Game
 
   attr_reader :players, :turn
 
+  def self.game_instance
+    @game_instance
+  end
+
+  def self.game_instance=(value)
+    @game_instance = value
+  end
+
   def initialize(*players)
     @players = players
     @turn = players[0]
+    self.class.game_instance = self
   end
 
   def attack(player)
